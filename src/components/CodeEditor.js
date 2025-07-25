@@ -49,15 +49,12 @@ function CodeEditor({ code, setCode, language, remoteCursors = [], onCursorChang
           beforeContentClassName: '',
           after: {
             content: ` ${cur.label}`,
-            inlineClassName: '',
+ 
           },
           before: {
             content: '',
           },
-          // Render a colored vertical bar as cursor
-          inlineClassName: '',
-          className: '',
-          // Use a border to simulate a cursor
+          // Render a colored cursor bar
           border: `2px solid ${cur.color}`,
           borderColor: cur.color,
           borderStyle: 'solid',

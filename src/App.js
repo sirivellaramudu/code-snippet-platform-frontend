@@ -42,8 +42,7 @@ function App() {
       }
       lastLang.current = language;
     }
-    // eslint-disable-next-line
-  }, [language]);
+  }, [language, roomId]);
 
   useEffect(() => {
     const joinRoom = () => {
