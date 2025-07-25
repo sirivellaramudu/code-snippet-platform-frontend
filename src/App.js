@@ -6,11 +6,11 @@ import PresenceList from './components/PresenceList';
 import RoomSelector from './components/RoomSelector';
 import LanguageSelector from './components/LanguageSelector';
 import axios from 'axios';
+import { socket } from './socket';
+import { v4 as uuidv4 } from 'uuid';
 
 // Base URL for backend (set in Netlify env as REACT_APP_BASE_URL)
 const API_BASE = process.env.REACT_APP_BASE_URL || '';
-import { socket } from './socket';
-import { v4 as uuidv4 } from 'uuid';
 
 function App() {
   const [roomId, setRoomId] = useState('default');
