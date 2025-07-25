@@ -42,7 +42,7 @@ function App() {
       }
       lastLang.current = language;
     }
-  }, [language, roomId]);
+  }, [language, roomId, code]);
 
   useEffect(() => {
     const joinRoom = () => {
@@ -146,7 +146,7 @@ function App() {
     if (code !== lastRemoteCode.current) {
       socket.emit('code-change', { roomId, code: code || '' });
     }
-  }, [code]);
+  }, [code, roomId]);
 
   useEffect(() => {
     // Fetch user info on load
