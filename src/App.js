@@ -6,6 +6,9 @@ import PresenceList from './components/PresenceList';
 import RoomSelector from './components/RoomSelector';
 import LanguageSelector from './components/LanguageSelector';
 import axios from 'axios';
+
+// Base URL for backend (set in Netlify env as REACT_APP_BASE_URL)
+const API_BASE = process.env.REACT_APP_BASE_URL || '';
 import { socket } from './socket';
 import { v4 as uuidv4 } from 'uuid';
 
@@ -150,7 +153,7 @@ function App() {
 
   useEffect(() => {
     // Fetch user info on load
-    axios.get('http://localhost:4000/auth/user', { withCredentials: true })
+    axios.get(`${API_BASE}/auth/user`, { withCredentials: true })
       .then(res => {
         setUser(res.data);
         setLoading(false);
@@ -167,7 +170,7 @@ function App() {
       return;
     }
     try {
-      const response = await axios.post('http://localhost:4000/execute', {
+      const response = await axios.post(`${API_BASE}/execute`, {
         script: code,
         language,
         versionIndex: '0',
@@ -179,11 +182,11 @@ function App() {
   };
 
   const handleLogin = (provider) => {
-    window.location.href = `http://localhost:4000/auth/${provider}`;
+    window.location.href = `${API_BASE}/auth/${provider}`;
   };
 
   const handleLogout = () => {
-    window.location.href = 'http://localhost:4000/auth/logout';
+    window.location.href = `${API_BASE}/auth/logout`;
   };
 
   return (
