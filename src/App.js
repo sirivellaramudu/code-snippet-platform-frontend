@@ -10,7 +10,7 @@ import { socket } from './socket';
 import { v4 as uuidv4 } from 'uuid';
 
 // Base URL for backend (set in Netlify env as REACT_APP_BASE_URL)
-const API_BASE = (process.env.REACT_APP_BASE_URL || '').replace(/\/$/, '');
+const API_BASE = (process.env.REACT_APP_BASE_URL || 'http://localhost:4000').replace(/\/$/, '');
 
 function App() {
   const [roomId, setRoomId] = useState('default');
